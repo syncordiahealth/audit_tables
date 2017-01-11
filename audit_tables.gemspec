@@ -6,12 +6,12 @@ require 'audit_tables/version'
 Gem::Specification.new do |spec|
   spec.name          = "audit_tables"
   spec.version       = AuditTables::VERSION
-  spec.authors       = ["Jesse House"]
-  spec.email         = ["jhouse@hsihealth.com"]
+  spec.authors       = ["Syncordia Technologies"]
+  spec.email         = ["info@syncordiahealth.ie"]
 
   spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/syncordiahealth/audit_tables"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
