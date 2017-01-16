@@ -1,0 +1,32 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/*'
+    - Gemfile
+    - syncordia.gemspec
+  DisplayCopNames: true
+AmbiguousOperator:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - Rakefile
+Style/Documentation:
+  Enabled: false
+Style/HashSyntax:
+  Exclude:
+    - Rakefile
+Style/IndentHash:
+  EnforcedStyle: consistent
+Style/LambdaCall:
+  Enabled: false
+Style/MultilineMethodCallIndentation:
+  Enabled: false
+Style/Next:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+AmbiguousOperator:
+  Enabled: false
+Style/ModuleFunction:
+  EnforcedStyle: extend_self

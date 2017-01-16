@@ -1,4 +1,5 @@
-require "audit_tables/version"
+# frozen_string_literal: true
+require 'audit_tables/version'
 
 module AuditTables
   def create_audit_table_for(table_name)
