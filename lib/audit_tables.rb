@@ -5,8 +5,8 @@ module AuditTables
     AuditTables::CreateNewAuditTable.new(table_name.to_s).build
   end
 
-  def create_audit_tables_for_existing_tables(options = [])
-    AuditTables::CreateAuditTablesForExistingTables.new(options).process
+  def create_audit_tables_for_existing_tables(options = {})
+    AuditTables::CreateAuditTablesForExistingTables.new(options[:excluded_tables]).process
   end
 
   def change_audit_table_for(table_name)
@@ -17,9 +17,9 @@ module AuditTables
     AuditTables::BuildAuditTrigger.new(table_name.to_s).build
   end
 
-  def rebuild_all_audit_triggers(options = [])
+  def rebuild_all_audit_triggers(options = {})
     tables = ActiveRecord::Base.connection.tables
-    tables -= options
+    tables -= options[:excluded_tables]
 
     tables.select { |table| !table.starts_with?('audit_') }.each do |table_name|
       build_audit_triggers_for(table_name)
