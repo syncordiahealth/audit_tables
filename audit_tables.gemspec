@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Syncordia Technologies"]
   spec.email         = ["info@syncordiahealth.ie"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Audit tables for Syncordia applications}
+  spec.description   = %q{Audit tables for Syncordia applications}
   spec.homepage      = "https://github.com/syncordiahealth/audit_tables"
   spec.license       = "MIT"
 
