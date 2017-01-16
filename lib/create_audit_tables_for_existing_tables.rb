@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module AuditTables
-  class CreateAuditTablesForExistingTables < Base
+  class CreateAuditTablesForExistingTables
     attr_reader :klasses
 
     def initialize
@@ -11,10 +11,7 @@ module AuditTables
     def process
       klasses.each do |klass|
         AuditTables::BuildAuditTrigger.new(klass).build
-        @table_name = klass
-        @klass = klass.classify.safe_constantize
-        @audit_table_name = "audit_#{klass}"
-        sync_audit_tables
+        AuditTables::CreateNewAuditTable.new(klass).build
       end
     end
   end
