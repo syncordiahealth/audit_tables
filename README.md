@@ -22,7 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You'll need to set up the tables that you don't want to audit in `config/initializers/audit_tables.rb`. Here is a possible configuration for this file:
+
+```ruby
+AuditTables.configure do |config|
+  config.exclude_tables << 'users'
+  config.exclude_tables << 'countries'
+  config.exclude_tables << 'cities'
+end
+```
 
 ## Development
 

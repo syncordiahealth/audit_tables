@@ -3,9 +3,9 @@ module AuditTables
   class CreateAuditTablesForExistingTables
     attr_reader :klasses
 
-    def initialize
+    def initialize(options)
       @klasses = ActiveRecord::Base.connection.tables
-      @klasses -= Module::BLACK_LISTED_TABLES
+      @klasses -= options
     end
 
     def process
