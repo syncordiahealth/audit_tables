@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require '../spec_helper'
+require 'spec_helper'
 
 class Entity < ActiveRecord::Base
 end
@@ -23,13 +23,18 @@ describe AuditTables do
     end
   end
 
-  def create_new_entity
-    Entity.create(name: Faker::Name.first_name)
+  def create_new_entity(name)
+    Entity.create(name: name)
   end
 
   describe 'Audit Tables' do
     context '.create_audit_table_for' do
       before { setup_database }
+
+      it 'database is template1' do
+        expect(ActiveRecord::Base.connection_config[:database]).to match(/template1/)
+      end
+
       it 'entities table should have an audit table' do
         AuditTables.create_audit_table_for(:entities)
 
@@ -54,12 +59,13 @@ describe AuditTables do
     end
 
     context 'when trigger actions are called' do
+      let(:new_name) { Faker::Name.first_name }
+
       it 'creates new audit_entity records' do
-        expect { create_new_entity }.to change(AuditEntity, :count).by(1)
+        expect { create_new_entity(new_name) }.to change(AuditEntity, :count).by(1)
       end
 
       it 'update an entity record' do
-        new_name = Faker::Name.first_name
         Entity.last.update!(name: new_name)
 
         expect(AuditEntity.last.name).to eq(new_name)
@@ -68,7 +74,7 @@ describe AuditTables do
       it 'creates an audit_entity record when deleting a entity record' do
         expect do
           Entity.last.delete
-        end.to change { AuditEntity.count }.from(2).to(3)
+        end.to change(AuditEntity, :count).by(1)
       end
     end
   end

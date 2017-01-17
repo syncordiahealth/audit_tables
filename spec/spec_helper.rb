@@ -12,8 +12,11 @@ require 'active_support'
 require 'audit_tables'
 require 'rspec'
 require 'faker'
+require 'rails'
 
-ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'postgres')
+Rails.env = 'test'
+
+ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'template1')
 
 RSpec.configure do |config|
 end
