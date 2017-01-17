@@ -13,13 +13,7 @@ require 'audit_tables'
 require 'rspec'
 require 'faker'
 
-root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-ActiveRecord::Base.establish_connection(
-  adapter: 'postgresql',
-  database: 'postgres'
-)
-
-puts "#{root}/db/audit_tables.db"
+ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'postgres')
 
 RSpec.configure do |config|
 end
