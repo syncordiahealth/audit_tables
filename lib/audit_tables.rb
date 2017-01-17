@@ -19,7 +19,7 @@ module AuditTables
     attr_accessor :exclude_tables
 
     def initialize
-      @exclude_tables = []
+      @exclude_tables = ['ar_internal_metadata', 'schema_migrations']
     end
   end
 

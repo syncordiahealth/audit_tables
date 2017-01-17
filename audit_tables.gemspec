@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Syncordia Technologies']
   spec.email         = ['info@syncordiahealth.ie']
 
-  spec.summary       = 'Audit tables for Syncordia applications'
-  spec.description   = 'Audit tables for Syncordia applications'
+  spec.summary       = 'Adds audit tables and triggers for postgres databases'
+  spec.description   = 'Adds audit tables and triggers for postgres databases'
   spec.homepage      = 'https://github.com/syncordiahealth/audit_tables'
   spec.license       = 'MIT'
 
