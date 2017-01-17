@@ -4,6 +4,9 @@ require '../spec_helper'
 class Entity < ActiveRecord::Base
 end
 
+class AuditEntity < ActiveRecord::Base
+end
+
 describe AuditTables do
   it 'has a version number' do
     expect(AuditTables::VERSION).not_to be nil
@@ -43,6 +46,12 @@ describe AuditTables do
         AuditTables.create_audit_tables_for_existing_tables
 
         expect(ActiveRecord::Base.connection.data_source_exists?(:audit_entities)).to eq(true)
+      end
+    end
+
+    context 'create a new entity record' do
+      it 'creates new audit_entity records' do
+        expect { Entity.create(name: Faker::Name.first_name) }.to change(AuditEntity, :count).by(1)
       end
     end
   end

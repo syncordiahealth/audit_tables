@@ -11,6 +11,7 @@ require 'active_record'
 require 'active_support'
 require 'audit_tables'
 require 'rspec'
+require 'faker'
 
 root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 ActiveRecord::Base.establish_connection(
