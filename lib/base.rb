@@ -54,7 +54,7 @@ module AuditTables
         t.string :audit_operation, null: false
         t.datetime :audit_timestamp, null: false
       end
-
+      
       add_column audit_table_name, :id, klass.columns_hash['id'].type
     end
 

@@ -18,5 +18,7 @@ ActiveRecord::Base.establish_connection(
   database: "#{root}/db/audit_tables.db"
 )
 
+puts "#{root}/db/audit_tables.db"
+
 RSpec.configure do |config|
 end
