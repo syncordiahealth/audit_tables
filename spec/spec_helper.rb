@@ -14,8 +14,8 @@ require 'rspec'
 
 root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 ActiveRecord::Base.establish_connection(
-  adapter: 'sqlite3',
-  database: "#{root}/db/audit_tables.db"
+  adapter: 'postgresql',
+  database: 'postgres'
 )
 
 puts "#{root}/db/audit_tables.db"

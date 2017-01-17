@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require '../spec_helper'
 
-class Company < ActiveRecord::Base
+class Entity < ActiveRecord::Base
 end
 
 describe AuditTables do
@@ -9,29 +9,40 @@ describe AuditTables do
     expect(AuditTables::VERSION).not_to be nil
   end
 
+  def setup_database
+    ActiveRecord::Base.connection.execute('DROP SCHEMA public CASCADE; CREATE SCHEMA public;')
+    ActiveRecord::Base.connection.execute('DROP TABLE IF EXISTS audit_entities')
+    ActiveRecord::Base.connection.execute('DROP TABLE IF EXISTS entities')
+    ActiveRecord::Base.connection.create_table(:entities) do |t|
+      t.string :name
+
+      t.timestamp
+    end
+  end
+
   describe 'Audit Tables' do
-    before do
-      ActiveRecord::Base.connection.execute("DROP TABLE IF EXISTS 'companies'")
-      ActiveRecord::Base.connection.execute("DROP TABLE IF EXISTS 'audit_companies'")
-      ActiveRecord::Base.connection.create_table(:companies) do |t|
-        t.string :name
-        
-        t.timestamp
+    context '.create_audit_table_for' do
+      before { setup_database }
+      it 'entities table should have an audit table' do
+        AuditTables.create_audit_table_for(:entities)
+
+        expect(ActiveRecord::Base.connection.data_source_exists?(:audit_entities)).to eq(true)
       end
     end
 
-    it 'all tables should have an audit table' do
-      tables = ActiveRecord::Base.connection.tables
-      tables -= []
+    context '.create_audit_tables_for_existing_tables' do
+      before do
+        setup_database
 
-      puts "tables ===> #{ActiveRecord::Base.connection.tables}"
+        AuditTables.configure do |config|
+          config.exclude_tables << 'users'
+        end
+      end
 
-      tables.select { |table| !table.starts_with?('audit_') }.each do |table_name|
-        AuditTables.create_audit_table_for(table_name)
-        audit_table_name = "audit_#{table_name}"
-        message = "Audit table: '#{audit_table_name}' does not exist. Use the create_audit_table_for helper."
+      it 'all tables should have an audit table' do
+        AuditTables.create_audit_tables_for_existing_tables
 
-        expect(ActiveRecord::Base.connection.data_source_exists?(audit_table_name)).to eq(true), message
+        expect(ActiveRecord::Base.connection.data_source_exists?(:audit_entities)).to eq(true)
       end
     end
   end

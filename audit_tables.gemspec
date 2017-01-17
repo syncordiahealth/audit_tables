@@ -37,5 +37,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rails'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '= 0.42.0'
-  spec.add_development_dependency 'sqlite3'
+  spec.add_development_dependency 'pg'
 end
