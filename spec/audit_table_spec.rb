@@ -13,9 +13,8 @@ describe AuditTables do
   end
 
   def setup_database
-    ActiveRecord::Base.connection.execute('DROP SCHEMA public CASCADE; CREATE SCHEMA public;')
-    ActiveRecord::Base.connection.execute('DROP TABLE IF EXISTS audit_entities')
-    ActiveRecord::Base.connection.execute('DROP TABLE IF EXISTS entities')
+    ActiveRecord::Base.connection.execute('DROP TABLE IF EXISTS audit_entities;')
+    ActiveRecord::Base.connection.execute('DROP TABLE IF EXISTS entities;')
     ActiveRecord::Base.connection.create_table(:entities) do |t|
       t.string :name
 
@@ -31,8 +30,8 @@ describe AuditTables do
     context '.create_audit_table_for' do
       before { setup_database }
 
-      it 'database is template1' do
-        expect(ActiveRecord::Base.connection_config[:database]).to match(/template1/)
+      it 'database is audit_tables_test' do
+        expect(ActiveRecord::Base.connection_config[:database]).to match(/audit_tables_test/)
       end
 
       it 'entities table should have an audit table' do
