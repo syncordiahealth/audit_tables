@@ -27,6 +27,8 @@ describe AuditTables do
   end
 
   describe 'Audit Tables' do
+    after(:all) { ActiveRecord::Base.connection.disconnect! }
+
     context '.create_audit_table_for' do
       before { setup_database }
 
@@ -42,13 +44,7 @@ describe AuditTables do
     end
 
     context '.create_audit_tables_for_existing_tables' do
-      before do
-        setup_database
-
-        AuditTables.configure do |config|
-          config.exclude_tables << 'users'
-        end
-      end
+      before { setup_database }
 
       it 'all tables should have an audit table' do
         AuditTables.create_audit_tables_for_existing_tables
