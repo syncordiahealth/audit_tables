@@ -4,4 +4,4 @@ machine:
       2.3.1
 database:
   override:
-    - echo "NO-OP: tests handle database setup"
+    - echo "NO-OP - tests handle database setup"
