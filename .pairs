@@ -1,0 +1,15 @@
+# .pairs - configuration for 'git pair'
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  aw: Alex Wang; alexw668
+  cw: Conroy Whitney; conroywhitney
+  en: Eric Nichols; nix2k2
+  jh: Jesse House; house9
+  jl: Julio Lucero; julioalucero
+  tt: Todd Trask;
+  vb: Vitor Oliveira; vbrazo
+
+email:
+  prefix: team
+  domain: gitpair.com
+  no_solo_prefix: true
