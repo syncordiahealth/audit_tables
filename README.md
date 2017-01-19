@@ -1,5 +1,7 @@
 # AuditTables
 
+[![CircleCI](https://circleci.com/gh/syncordiahealth/audit_tables/tree/master.svg?style=shield)](https://circleci.com/gh/syncordiahealth/audit_tables/tree/master)
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/audit_tables`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
