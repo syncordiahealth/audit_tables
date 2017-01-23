@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative '../../lib/audit_tables/create_new_audit_table'
+require_relative '../../lib/audit_tables'
 
 describe AuditTables::CreateNewAuditTable do
   it 'can be' do

@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require_relative './base'
-
 module AuditTables
   class ChangeAuditTable < Base
     attr_accessor :audit_column

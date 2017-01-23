@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative '../../lib/audit_tables/change_audit_table'
+require_relative '../../lib/audit_tables'
 
 describe AuditTables::ChangeAuditTable do
   it 'can be' do

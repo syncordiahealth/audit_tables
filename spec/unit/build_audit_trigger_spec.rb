@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative '../../lib/audit_tables/build_audit_trigger'
+require_relative '../../lib/audit_tables'
 
 describe AuditTables::BuildAuditTrigger do
   it 'can be' do

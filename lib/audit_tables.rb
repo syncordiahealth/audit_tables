@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 require 'active_record'
-# include all of the files inside the `lib/audit_tables` folder
-Gem.find_files('audit_tables/**/*.rb').each { |path| require path }
+require 'audit_tables/version'
+require 'audit_tables/base'
+require 'audit_tables/build_audit_trigger'
+require 'audit_tables/change_audit_table'
+require 'audit_tables/create_audit_tables_for_existing_tables'
+require 'audit_tables/create_new_audit_table'
 
 module AuditTables
   class << self
