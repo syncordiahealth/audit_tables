@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'active_record'
+
 module AuditTables
   class BuildAuditTrigger < ActiveRecord::Migration
     attr_reader :table_name

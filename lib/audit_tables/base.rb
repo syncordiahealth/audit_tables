@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'active_record'
+
 module AuditTables
   class Base < ActiveRecord::Migration[5.0]
     attr_accessor :audit_table_name, :column, :klass, :table_name

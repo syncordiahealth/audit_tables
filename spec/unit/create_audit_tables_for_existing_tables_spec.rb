@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require_relative '../../lib/audit_tables'
+require 'active_record'
+require_relative '../../lib/audit_tables/create_audit_tables_for_existing_tables'
 
 describe AuditTables::CreateAuditTablesForExistingTables do
   let(:connection) { OpenStruct.new({ tables: [] }) }
