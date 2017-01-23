@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'active_record'
 # include all of the files inside the `lib/audit_tables` folder
 Gem.find_files('audit_tables/**/*.rb').each { |path| require path }
 
