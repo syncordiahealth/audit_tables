@@ -7,11 +7,17 @@ AllCops:
   DisplayCopNames: true
 AmbiguousOperator:
   Enabled: false
+Metrics/BlockLength:
+  Enabled: false
 Metrics/LineLength:
   Max: 120
   Exclude:
     - Rakefile
+Style/SymbolArray:
+  Enabled: false
 Style/Documentation:
+  Enabled: false
+Style/EmptyLineAfterMagicComment:
   Enabled: false
 Style/HashSyntax:
   Exclude:

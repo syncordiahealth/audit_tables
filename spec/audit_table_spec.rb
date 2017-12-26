@@ -5,6 +5,7 @@ class Entity < ActiveRecord::Base
 end
 
 class AuditEntity < ActiveRecord::Base
+  self.primary_key = 'audit_id'
 end
 
 describe AuditTables do

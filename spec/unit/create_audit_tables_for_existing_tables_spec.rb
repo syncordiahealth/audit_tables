@@ -3,7 +3,7 @@ require 'active_record'
 require_relative '../../lib/audit_tables'
 
 describe AuditTables::CreateAuditTablesForExistingTables do
-  let(:connection) { OpenStruct.new({ tables: [] }) }
+  let(:connection) { OpenStruct.new(tables: []) }
 
   before do
     allow(ActiveRecord::Base).to receive(:connection).and_return(connection)

@@ -43,7 +43,7 @@ module AuditTables
   def self.check_for_audit_tables
     messages = []
 
-    all_audit_tables.select { |table| !table.starts_with?('audit_') }.each do |table_name|
+    all_audit_tables.reject { |table| table.starts_with?('audit_') }.each do |table_name|
       messages << table_name unless all_audit_tables.include? "audit_#{table_name}"
     end
 
@@ -63,7 +63,7 @@ module AuditTables
   end
 
   def self.rebuild_all_audit_triggers
-    all_audit_tables.select { |table| !table.starts_with?('audit_') }.each do |table_name|
+    all_audit_tables.reject { |table| table.starts_with?('audit_') }.each do |table_name|
       build_audit_triggers_for(table_name)
     end
   end
