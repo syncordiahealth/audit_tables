@@ -5,3 +5,6 @@ machine:
 database:
   override:
     - echo "NO-OP - tests handle database setup"
+test:
+  override:
+    - bundle exec rake
