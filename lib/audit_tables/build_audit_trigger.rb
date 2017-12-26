@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module AuditTables
-  class BuildAuditTrigger < ActiveRecord::Migration
+  class BuildAuditTrigger < ActiveRecord::Migration[5.0]
     attr_reader :table_name
 
     def initialize(table_name)
