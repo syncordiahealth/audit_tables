@@ -123,6 +123,8 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Change Log
 
+* 1.0.2 (2017-12-26)
+  * Update development dependency `rubocop` (security vulnerability)
 * 1.0.1 (2017-01-24)
   * Use explicit requires, was causing errors in some environments
 * Version 1.0.0 (2017-01-20)
